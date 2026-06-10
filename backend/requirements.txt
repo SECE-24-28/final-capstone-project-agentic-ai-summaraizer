@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+google-generativeai
+python-dotenv
+sqlalchemy
+youtube-transcript-api
+pymupdf
+python-multipart
+openai-whisper
+ffmpeg-python
