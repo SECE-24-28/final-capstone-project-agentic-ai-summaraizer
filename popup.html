@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SummarAIze MVP</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="card">
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-pulse"></div>
+        <h1>SummarAIze</h1>
+      </div>
+      <span class="badge">MVP</span>
+    </header>
+
+    <main class="main-content">
+      <p id="popup-description" class="description">Extract visible text from the current page and log it for processing.</p>
+      
+      <button id="summarize-btn" class="btn-primary">
+        <span>Summarize Page</span>
+        <svg class="icon-sparkle" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 3L14.5 9.5L21 12L14.5 14.5L12 21L9.5 14.5L3 12L9.5 9.5L12 3Z" fill="currentColor"/>
+        </svg>
+      </button>
+
+      <button id="view-summaries-btn" class="btn-secondary">
+        <span>View All Summaries</span>
+        <svg class="icon-list" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Recording Controls -->
+      <div class="recording-controls hidden">
+        <button id="record-btn" class="btn-record">
+          <span>Record & Summarize</span>
+          <svg class="icon-record" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </button>
+
+        <button id="stop-btn" class="btn-stop hidden">
+          <span>Stop & Summarize</span>
+          <svg class="icon-stop" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="6" width="12" height="12"/>
+          </svg>
+        </button>
+
+        <div id="recording-timer" class="recording-timer hidden">00:00</div>
+        <div id="recording-status" class="recording-status hidden"></div>
+      </div>
+
+      <div id="status-container" class="status-container hidden">
+        <div class="spinner"></div>
+        <span id="status-text">Extracting text...</span>
+      </div>
+
+      <div id="result-container" class="result-container hidden">
+        <div class="result-header">
+          <svg class="icon-success" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="currentColor"/>
+          </svg>
+          <div class="title-with-badge">
+            <h3 id="result-title">Extraction Complete</h3>
+            <span id="save-badge" class="save-badge hidden">Saved!</span>
+          </div>
+        </div>
+        <p class="result-body">Text extracted successfully! Check the extension console logs to view the payload.</p>
+        <div class="text-stats">
+          <span id="char-count">0 characters</span>
+          <span class="dot">•</span>
+          <span id="word-count">0 words</span>
+        </div>
+      </div>
+
+      <!-- Popup Chat Container -->
+      <div id="popup-chat-container" class="popup-chat-container hidden">
+        <div class="chat-header-area">
+          <span id="popup-chat-title" class="chat-header-title">Chat About This Summary</span>
+          <button id="popup-chat-mode-btn" class="chat-mode-btn">General Chat</button>
+        </div>
+        <div id="popup-chat-messages" class="popup-chat-messages">
+          <!-- Messages will be loaded/appended dynamically -->
+        </div>
+        <div class="popup-chat-input-bar">
+          <input type="text" id="popup-chat-input" placeholder="Ask a question..." />
+          <button id="popup-chat-send-btn">Ask</button>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <span>SummarAIze v1.0 • Ready</span>
+    </footer>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
