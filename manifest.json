@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "SummarAIze MVP",
+  "version": "1.0",
+  "description": "Extract and summarize webpage content for efficient studying.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabCapture"
+  ],
+  "host_permissions": [
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
